@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="secret-info">My Secret info</h1>
+    <input id="delete-confirm" type="text" placeholder="please type delete">
+    <button id="btn-delete" disabled>Delete</button>
+    <script>
+        // we use input first cause at first btn is disabled
+        // keyup is used because btn is disabled
+        // we need the delete text that's why we use event
+       document.getElementById('delete-confirm').addEventListener('keyup',function(event){
+        // text value is determined cause we need the word delete
+        const text=event.target.value;
+        // we use use button id here cause after getting the text button will be enabled
+        const deleteButton=document.getElementById('btn-delete')
+        // when we will get the delete word disabled attribute will be removed
+        if(text==='delete'){
+            deleteButton.removeAttribute('disabled')
+        }
+        // if we press more than delete work button will be disabled again for the section below
+        else{
+            deleteButton.setAttribute('disabled',true);
+        }
+       })
+    //    when we will click the delete button  the text inside the h1 will be removed or disappeared
+       document.getElementById('btn-delete').addEventListener('click',function(){
+        const secret=document.getElementById('secret-info');
+        secret.style.display='none'
+       })
+    </script>
+</body>
+</html>

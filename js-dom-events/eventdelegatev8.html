@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Explore Event Delegate</h1>
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem ipsum dolor sit amet.</li>
+            <li class="item">Placeat distinctio similique molestias. Sit!</li>
+            <li class="item">At animi molestias qui maxime.</li>
+            <li class="item">Minus sit doloremque aut eaque?</li>
+            <li class="item">Consequatur est aliquid mollitia vero.</li>
+            <li class="item">Rem, consectetur. Culpa, assumenda blanditiis!</li>
+        </ul>
+        <button id="btn-add-item">Add item</button>
+    </section>
+    <script>
+        // access the parent through target child and remove the target child through the parent
+        // const items=document.getElementsByClassName('item');
+        // for(const item of items){
+        //     item.addEventListener('click',function(event){
+        //         event.target.parentNode.removeChild(event.target)
+        //     })
+        // }
+        // when you want to remove the new added element you have to use parent instead of child
+        document.getElementById('list-container').addEventListener('click',function(event){
+            event.target.parentNode.removeChild(event.target)
+        })
+        // add anew item
+        document.getElementById('btn-add-item').addEventListener('click',function(){
+            const listContainer=document.getElementById('list-container');
+            const li=document.createElement('li');
+            li.innerText='brand new item added';
+            // add class of the other child through the classlist and add
+            // li.classList.add('item')
+            listContainer.appendChild(li);
+        })
+    </script>
+</body>
+</html>

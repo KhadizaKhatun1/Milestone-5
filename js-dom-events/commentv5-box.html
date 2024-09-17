@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Comment</title>
+</head>
+<body>
+    <h1>Please add your comment</h1>
+    <div id="comment-container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt doloremque perferendis quaerat obcaecati. Quasi modi nobis, pariatur, placeat alias dolorem nam similique iure officiis aperiam sint, quibusdam rem ut velit!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt doloremque perferendis quaerat obcaecati. Quasi modi nobis, pariatur, placeat alias dolorem nam similique iure officiis aperiam sint, quibusdam rem ut velit!</p>
+        <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt doloremque perferendis quaerat obcaecati. Quasi modi nobis, pariatur, placeat alias dolorem nam similique iure officiis aperiam sint, quibusdam rem ut velit!.</p>
+    </div>
+    <div>
+       <textarea name="" id="new-comment" cols="60" rows="5"></textarea>
+       <br>
+       <button id="btn-post">Post</button>
+    </div>
+    <script>
+    //    add event listener to the post button
+    document.getElementById('btn-post').addEventListener('click',function(){
+        // step:2 get the comment from the textarea
+        const commentBox=document.getElementById('new-comment');
+        const newComment=commentBox.value;
+        // console.log(newComment)
+        // step:3 set the comment inside the comment container
+        // 1.get the comment container
+        // create a new element(p)
+        // set the text of the comment as the innerText of the p tag
+        // add the p tag using append child.
+        const commentContainer=document.getElementById('comment-container');
+        const p=document.createElement('p');
+        p.innerText=newComment;
+        commentContainer.appendChild(p)
+        // step:4 clear the textarea
+       commentBox.value='';
+
+    })
+   
+    </script>
+</body>
+</html>
